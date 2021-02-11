@@ -35,18 +35,18 @@ class Bot(ABC):
 		self.bot.send_message(self.chatId, self.botResponses)
 
 		self.storeData()
-		if int(self.datetime.hour) % 6 == 0:
+		if self.datetime.hour % 6 == 0:
 			self.saveData()
 
 	def getData(self):
 		self.chatId = self.message.chat.id
-		self.datetime = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+		self.datetime = datetime.now()
 
 	def storeData(self):
 		self.data = self.data.append({
 			'user_message': self.message.text,
 			'bot_response': self.botResponses,
-			'datetime': self.datetime,
+			'datetime': self.datetime.strftime("%Y-%m-%d %H:%M:%S"),
 		}, ignore_index=True)
 
 	def saveData(self, path='reports'):
