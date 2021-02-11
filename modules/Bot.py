@@ -24,6 +24,6 @@ class Bot(ABC):
 
 	def processTextAndReply(self, message):
 		chatId = message.chat.id
-		response = "A simple bot"
+		botResponse = "A simple bot"
 		self.bot.send_message(chatId, botResponse)
 
