@@ -1,6 +1,6 @@
 from modules.Bot import Bot
 
-class BotTextChoices(Bot):
+class BotBySets(Bot):
 	def processTextAndReply(self):
 		self.getData()
 
